@@ -10,5 +10,6 @@ return array(
       "server" => "localhost",
       "password" =>"",
       "dbname" => "bookmarks"
-  )
+  ),
+  "basepath" =>"/bookmarks/"
 );

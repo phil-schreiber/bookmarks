@@ -16,7 +16,7 @@ class Autoloader
     }
 
     public function loadClass($className)
-    {
+    {        
 	    if($this->namespace !== null)
 	    {
 	    	$className = str_replace($this->namespace . '\\', '', $className);

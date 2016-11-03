@@ -7,13 +7,15 @@ use bm\db\PDOAdapter as PDO;
 
 
 
-require_once "vendor/autoload.php";
+
 $config = include "config/config.php";
 
+/*bootstrapping the general autoloader*/
 require_once 'config/bootstrap.php';
 
 $autoloader = new Autoloader('bm');
 $autoloader->register();
+
 
 
 $container = new Container();
@@ -31,5 +33,6 @@ $container['db'] = function ($c) {
     return new db($adapter);
 };
 
-$query=$container["db"]->getDb()->query("SELECT * FROM bookmarks WHERE uid = :uid",array("uid"=>1));
+//$query=$container["db"]->getDb()->query("SELECT * FROM bookmarks WHERE uid = :uid",array("uid"=>1));
 
+require_once CONFIG_PATH . "routes.php";

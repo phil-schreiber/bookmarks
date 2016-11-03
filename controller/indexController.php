@@ -9,5 +9,6 @@
 class indexController{
     public function indexAction(){
         
+        echo 1;
     }
 }
