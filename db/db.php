@@ -12,7 +12,7 @@ class db{
         $this->adapter=$adapter;
     }
     
-    public function getDb(){
+    public function getAdapter(){
         return $this->adapter;
     }
 }

@@ -13,12 +13,34 @@ use bm\model\bookmarks;
  * @author master1
  */
 class bookmarksController extends controllerBase{
+    
+        
+    
     public function listAction(){        
-        $bookmarks = bookmarks::find();        
-        
-            
-        
+        /*TODO implementing factory for model creation instead of passing on dependency */
+        $bookmarksObject = new bookmarks($this->db);
+        $bookmarks = $bookmarksObject->find(array(
+            "conditions" => "`deleted` = 0",
+            "bind" => array(
+                1 => 0
+            )
+        ));        
+                            
         echo json_encode($bookmarks);
+    }
+    
+    public function retrieveAction($id=0){
+        
+        $bookmarksObject = new bookmarks($this->db);
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST["id"])) {
+            $id = filter_input(INPUT_POST,$_POST["id"],FILTER_VALIDATE_INT);
+            
+        }else{
+            $id = filter_var($id,FILTER_VALIDATE_INT);
+        }
+        
+        $bookmark = $bookmarksObject->findOneById($id);
+        echo json_encode($bookmark);
     }
     
     public function indexAction(){

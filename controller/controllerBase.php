@@ -1,6 +1,4 @@
 <?php
-
-
 namespace bm\controller;
 
 /**
@@ -9,7 +7,9 @@ namespace bm\controller;
  * @author master1
  */
 class controllerBase {
-   function __construct(\Pimple\Container $app){
-        $this->app = $app;
+   protected $db;
+   
+   function __construct(\bm\db\db $db){
+        $this->db = $db;
    }
 }

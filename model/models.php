@@ -7,8 +7,25 @@ namespace bm\model;
  * @author master1
  */
 class models {
-    public function find($params=array()){
-        $result = $this->app["db"]->getDb()->query("SELECT * FROM bookmarks WHERE uid = :uid",array("uid"=>1));
+    protected $table;
+    protected $db;
+    function __construct($db) {
+        $this->db=$db;
+    }
+    
+    public function find($params=array()){        
+        $result = $this->db->getAdapter()->query("SELECT * "
+                . "FROM ".$this->table." "
+                . "WHERE ".$params["conditions"]."",$params["bind"]);        
         return $result;
+    }
+    
+    public function findOneById($id){        
+         $result = $this->db->getAdapter()->query("SELECT * "
+                . "FROM ".$this->table." "
+                . "WHERE uid = ?",array(1=>$id));        
+         
+        
+        return $result[0];        
     }
 }

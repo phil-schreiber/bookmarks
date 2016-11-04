@@ -36,3 +36,12 @@ $container['db'] = function ($c) {
 //$query=$container["db"]->getDb()->query("SELECT * FROM bookmarks WHERE uid = :uid",array("uid"=>1));
 
 require_once CONFIG_PATH . "routes.php";
+
+$container['request'] = array($controller,$action);
+
+$container['controller'] = function($c){    
+    $controller = "bm\controller\\".ucfirst($c["request"][0])."Controller";    
+    return new $controller($c["db"]);
+};
+
+$container['controller']->$action($id);

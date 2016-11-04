@@ -21,10 +21,23 @@ class PDOAdapter implements AdapterInterface {
     
         
     
-    public function query($query,$params){
+    public function query($query,$params){        
+        $result = array();
         $stmt = $this->conn->prepare($query);
-        $stmt->execute($params);
-        return $stmt->fetch();
+        
+        foreach($params as $key => $value){
+            
+            if(is_int($value)){                
+                $stmt->bindParam($key, $value, \PDO::PARAM_INT);
+            }else{
+                $stmt->bindValue($key, $value);
+            }
+        }
+        $stmt->execute();
+        while($row = $stmt->fetch()){
+            array_push($result,$row);
+        }
+        return $result;
     }
     
     
