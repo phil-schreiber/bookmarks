@@ -1,0 +1,22 @@
+﻿latest
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Date:      Tue Nov 8 16:58:08 2016 +0100
+#
+# On branch master
+# Your branch is up-to-date with 'origin/master'.
+#
+# Changes to be committed:
+#	modified:   db/AdapterInterface.php
+#	modified:   db/PDOAdapter.php
+#	modified:   db/db.php
+#	modified:   index.php
+#	new file:   model/AbstractEntity.php
+#	modified:   model/bookmarks.php
+#	copied:     model/bookmarks.php -> model/bookmarksMapper.php
+#	modified:   model/models.php
+#	modified:   nbproject/private/private.xml
+#
+

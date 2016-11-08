@@ -7,13 +7,13 @@ namespace bm\db;
  */
 
 class db{
-    protected $adapter;
+    protected $_adapter;
     public function __construct(AdapterInterface $adapter) {
-        $this->adapter=$adapter;
+        $this->_adapter=$adapter;
     }
     
     public function getAdapter(){
-        return $this->adapter;
+        return $this->_adapter;
     }
 }
 

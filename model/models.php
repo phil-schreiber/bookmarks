@@ -6,26 +6,38 @@ namespace bm\model;
  *
  * @author master1
  */
-class models {
-    protected $table;
-    protected $db;
-    function __construct($db) {
-        $this->db=$db;
+abstract class models {
+    protected $_table;
+    protected $_db;
+    
+    function __construct(\bm\db\db $db) {
+        $this->_db=$db;
     }
     
     public function find($params=array()){        
-        $result = $this->db->getAdapter()->query("SELECT * "
-                . "FROM ".$this->table." "
+        $entities = array();
+        $results = $this->db->getAdapter()->query("SELECT * "
+                . "FROM ".$this->_table." "
                 . "WHERE ".$params["conditions"]."",$params["bind"]);        
-        return $result;
+        if($results){
+            foreach($results as $result){
+                $entities[]=$this->createEntity($result);
+            }
+        }
+       
+        return $entities;
     }
     
     public function findOneById($id){        
-         $result = $this->db->getAdapter()->query("SELECT * "
-                . "FROM ".$this->table." "
+        
+        $result = $this->_db->getAdapter()->query("SELECT * "
+                . "FROM ".$this->_table." "
                 . "WHERE uid = ?",array(1=>$id));        
          
         
-        return $result[0];        
+        return $this->createEntity($result[0]);        
     }
+    
+    abstract protected function createEntity(array $row);
+    
 }

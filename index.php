@@ -27,6 +27,7 @@ $container['db'] = function ($c) {
         case "mysql":                        
         default:
             $adapter=new PDO('mysql:dbname='.$c["config"]["db"]["dbname"].';host='.$c["config"]["db"]["server"].'',$c["config"]["db"]["user"],$c["config"]["db"]["password"]);
+            $adapter->connect();
             break;
     }
     
