@@ -9,16 +9,27 @@ use PDO;
 
 class PDOAdapter implements AdapterInterface {
     private $conn;
+    private $dsn,$user,$password;
     public function __construct($dsn,$user,$password) {                        
+        $this->dsn = $dsn;
+        $this->user = $user;
+        $this->password = $password;
+    }
+    
+    public function connect(){
+        
+        if ($this->conn) {
+            return;
+        }
+        
         try {
             /*Breaking DI here, but passing in the connection seem a little off*/
-            $this->conn = new PDO($dsn, $user, $password);
+            $this->conn = new PDO($this->dsn, $this->user, $this->password);
             $this->conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
         } catch (PDOException $e) {
             echo 'Connection failed: ' . $e->getMessage();
         }
     }
-    
         
     
     public function query($query,$params){        

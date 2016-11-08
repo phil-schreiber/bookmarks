@@ -8,6 +8,8 @@ namespace bm\db;
 
 interface AdapterInterface {
     
+    public function connect();
+    
     public function query($statement,$params);
     
 }
