@@ -19,6 +19,5 @@ class bookmarks extends AbstractEntity{
         $this->setTitle($title);
     }
     
-    
-    
+
 }
