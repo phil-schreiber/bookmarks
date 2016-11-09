@@ -7,9 +7,11 @@ namespace bm\controller;
  * @author master1
  */
 class controllerBase {
-   protected $db;
+   protected $_db;
+   protected $_mappers;
    
-   function __construct(\bm\db\db $db){
-        $this->db = $db;
+   function __construct(\bm\db\db $db, $mappers){
+        $this->_db = $db;
+        $this->_mappers=$mappers;
    }
 }

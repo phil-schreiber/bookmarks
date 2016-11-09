@@ -1,6 +1,6 @@
 <?php
 namespace bm\controller;
-use bm\model\bookmarks;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -13,13 +13,12 @@ use bm\model\bookmarks;
  * @author master1
  */
 class bookmarksController extends controllerBase{
-    
-        
+            
     
     public function listAction(){        
         /*TODO implementing factory for model creation instead of passing on dependency */
-        $bookmarksObject = new bookmarks($this->db);
-        $bookmarks = $bookmarksObject->find(array(
+        
+    $bookmarks = $this->_mappers["bookmarks"]->find(array(
             "conditions" => "`deleted` = 0",
             "bind" => array(
                 1 => 0

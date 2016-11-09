@@ -16,7 +16,7 @@ abstract class models {
     
     public function find($params=array()){        
         $entities = array();
-        $results = $this->db->getAdapter()->query("SELECT * "
+        $results = $this->_db->getAdapter()->query("SELECT * "
                 . "FROM ".$this->_table." "
                 . "WHERE ".$params["conditions"]."",$params["bind"]);        
         if($results){

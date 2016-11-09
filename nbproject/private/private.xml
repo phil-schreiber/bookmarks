@@ -3,11 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/xampp/htdocs/bookmarks/model/AbstractEntity.php</file>
             <file>file:/C:/xampp/htdocs/bookmarks/model/bookmarks.php</file>
             <file>file:/C:/xampp/htdocs/bookmarks/db/db.php</file>
+            <file>file:/C:/xampp/htdocs/bookmarks/model/bookmarksMapper.php</file>
             <file>file:/C:/xampp/htdocs/bookmarks/model/models.php</file>
             <file>file:/C:/xampp/htdocs/bookmarks/controller/bookmarksController.php</file>
             <file>file:/C:/xampp/htdocs/bookmarks/index.php</file>
+            <file>file:/C:/xampp/htdocs/bookmarks/controller/controllerBase.php</file>
             <file>file:/C:/xampp/htdocs/bookmarks/db/PDOAdapter.php</file>
             <file>file:/C:/xampp/htdocs/bookmarks/db/AdapterInterface.php</file>
         </group>

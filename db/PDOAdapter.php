@@ -34,6 +34,7 @@ class PDOAdapter implements AdapterInterface {
     
     public function query($query,$params){        
         $result = array();
+        
         $stmt = $this->conn->prepare($query);
         
         foreach($params as $key => $value){
@@ -51,5 +52,5 @@ class PDOAdapter implements AdapterInterface {
         return $result;
     }
     
-    
+    /*TODO implement all crud methods*/
 }
