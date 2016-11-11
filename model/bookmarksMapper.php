@@ -9,7 +9,7 @@ class bookmarksMapper extends models{
     }
     
     
-    function createEntity(array $row) {
-    return new bookmarks($row["uid"],$row["title"],$row["url"],$row["tstamp"]);
+    function createEntity(array $row) {        
+        return new bookmarks(intval($row["uid"]),$row["title"],$row["url"],$row["tstamp"]);
     }
 }

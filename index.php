@@ -22,6 +22,7 @@ $container = new Container();
 
 $container['config']=$config;
 
+/*db adapter*/
 $container['db'] = function ($c) {
     switch($c["config"]["db"]["adapter"]){
         case "mysql":                        
@@ -40,6 +41,8 @@ $container["mm"]=function($c){
             "bookmarks" => new model\bookmarksMapper($c["db"])
         );
 };
+
+/*viewcontainer*/
 
 //$query=$container["db"]->getDb()->query("SELECT * FROM bookmarks WHERE uid = :uid",array("uid"=>1));
 

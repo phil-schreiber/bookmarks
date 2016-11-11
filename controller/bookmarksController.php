@@ -25,7 +25,8 @@ class bookmarksController extends controllerBase{
             )
         ));        
                             
-        echo json_encode($bookmarks);
+    
+        return $bookmarks;
     }
     
     public function retrieveAction($id=0){

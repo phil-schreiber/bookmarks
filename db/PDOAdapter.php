@@ -46,9 +46,10 @@ class PDOAdapter implements AdapterInterface {
             }
         }
         $stmt->execute();
-        while($row = $stmt->fetch()){
+        while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
             array_push($result,$row);
         }
+        
         return $result;
     }
     

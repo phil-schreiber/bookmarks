@@ -15,7 +15,7 @@ class bookmarks extends AbstractEntity{
     protected $_title;
     protected $_hashtags;
     
-    public function __construct(int $uid=0,$tstamp,$url,$title, array $hashtags=array()){
+    public function __construct( $uid=null,$tstamp,$url,$title, array $hashtags=null){
         $this->setUid($uid);
         $this->setTstamp($tstamp);
         $this->setUrl($url);
@@ -30,7 +30,7 @@ class bookmarks extends AbstractEntity{
             throw new \BadMethodCallException("UID has already been set");
         }
         
-        if(!is_int($uid) || $uid < 1){
+        if(!is_int($uid) || $uid < 1){            
             throw new \InvalidArgumentException("The UID is invalid");
         }
         
