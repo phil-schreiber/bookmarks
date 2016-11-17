@@ -44,7 +44,7 @@ $container["mm"]=function($c){
 
 /*viewcontainer*/
 
-//$query=$container["db"]->getDb()->query("SELECT * FROM bookmarks WHERE uid = :uid",array("uid"=>1));
+
 
 require_once CONFIG_PATH . "routes.php";
 
