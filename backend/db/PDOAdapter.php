@@ -53,5 +53,35 @@ class PDOAdapter implements AdapterInterface {
         return $result;
     }
     
-    /*TODO implement all crud methods*/
+    public function insert($table,$params){
+        $binds = array();
+        $cols = implode(',',array_keys($params));
+        $vals = implode(',:',array_keys($params));
+        
+        foreach($params as $key => $param){
+            $binds[':'.$key]=$param;
+        }
+        
+        $stmt = $this->conn->prepare("INSERT INTO ".$table." (".$cols.") VALUES (:".$vals.")");
+        $result = $stmt->execute($binds);
+        return (int) $result->getLastInsertId();
+    }
+    
+    public function update($table,$params,$uid){
+        $updates = array();
+        $binds = array();
+        foreach($params as $key => $param){
+            $updates[] = $key.' = :'.$key;
+            $binds[':'.$key] = $param;
+        }
+        $binds[':uid'] = $uid;
+        $stmt = $this->conn->prepare("UPDATE ".$table." SET ".implode(',',$updates)." WHERE uid = :uid");
+        return $stmt->execute($binds);
+    }
+    
+    public function getLastInsertId($name = null) {
+        $this->connect();
+        return $this->conn->lastInsertId($name);
+    }
+        
 }

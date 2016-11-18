@@ -11,5 +11,5 @@ return array(
       "password" =>"",
       "dbname" => "bookmarks"
   ),
-  "basepath" =>"/bookmarks/"
+  "basepath" =>"/bookmarks/backend/"
 );

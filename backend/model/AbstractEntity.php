@@ -1,7 +1,7 @@
 <?php
 namespace bm\model;
 
-abstract class AbstractEntity
+abstract class AbstractEntity implements \JsonSerializable
 {
     /*
      * crediting Alejandro Gervasio's https://www.sitepoint.com/building-a-domain-model/ for this implementation of abstract entities  
@@ -47,4 +47,6 @@ abstract class AbstractEntity
     public function toArray() {
         return get_object_vars($this);
     }
+    
+    abstract public function jsonSerialize();
 }

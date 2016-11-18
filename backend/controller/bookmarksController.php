@@ -30,20 +30,33 @@ class bookmarksController extends controllerBase{
     }
     
     public function retrieveAction($id=0){
-        
-        $bookmarksObject = new bookmarks($this->db);
+                
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST["id"])) {
-            $id = filter_input(INPUT_POST,$_POST["id"],FILTER_VALIDATE_INT);
-            
+            $id = filter_input(INPUT_POST,$_POST["id"],FILTER_VALIDATE_INT);            
         }else{
             $id = filter_var($id,FILTER_VALIDATE_INT);
         }
         
-        $bookmark = $bookmarksObject->findOneById($id);
+        $bookmark = $this->_mappers["bookmarks"]->findOneById($id);
+        
         echo json_encode($bookmark);
     }
     
     public function indexAction(){
         $this->listAction();
+    }
+    
+    public function create(){
+        if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+            $bookmark = new \bm\model\bookmarks(
+                null,
+                time(),    
+                filter_input(INPUT_POST,$_POST["url"]),
+                filter_input(INPUT_POST,$_POST["title"])    
+                );
+            $this->_mappers["bookmarks"]->insert($bookmark);
+        }
+        
+        
     }
 }

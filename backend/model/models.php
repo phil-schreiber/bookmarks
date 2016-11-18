@@ -38,6 +38,11 @@ abstract class models {
         return $this->createEntity($result[0]);        
     }
     
+    abstract public function insert(AbstractEntity $object);
+    
+    
     abstract protected function createEntity(array $row);
+    
+    
     
 }

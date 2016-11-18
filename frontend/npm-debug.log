@@ -5,17 +5,17 @@
 2 info using npm@3.10.9
 3 info using node@v7.1.0
 4 verbose run-script [ 'prestart', 'start', 'poststart' ]
-5 info lifecycle bookmars@1.0.0~prestart: bookmars@1.0.0
-6 silly lifecycle bookmars@1.0.0~prestart: no script for prestart, continuing
-7 info lifecycle bookmars@1.0.0~start: bookmars@1.0.0
-8 verbose lifecycle bookmars@1.0.0~start: unsafe-perm in lifecycle true
-9 verbose lifecycle bookmars@1.0.0~start: PATH: C:\Program Files\nodejs\node_modules\npm\bin\node-gyp-bin;C:\xampp\htdocs\bookmarks\frontend\node_modules\.bin;C:\Users\denkfabrik\AppData\Local\GitHub\PortableGit_284a859b0e6deba86edc624fef1e4db2aa8241a9\cmd;C:\Users\denkfabrik\AppData\Local\GitHub\PortableGit_284a859b0e6deba86edc624fef1e4db2aa8241a9\usr\bin;C:\Users\denkfabrik\AppData\Local\GitHub\PortableGit_284a859b0e6deba86edc624fef1e4db2aa8241a9\usr\share\git-tfs;C:\Users\denkfabrik\AppData\Local\Apps\2.0\M7EQ0P6P.NPW\6Y0L3AA3.ZCW\gith..tion_317444273a93ac29_0003.0003_83ed0490a76a8c54;C:\Users\denkfabrik\AppData\Local\GitHub\lfs-amd64_1.3.1;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\GtkSharp\2.12\bin;C:\xampp\php;C:\ProgramData\ComposerSetup\bin;C:\Program Files\nodejs\;C:\Users\denkfabrik\AppData\Local\Programs\EmEditor;C:\OpenSSL-Win64;C:\curl\bin;C:\Users\denkfabrik\AppData\Roaming\Composer\vendor\bin;C:\Users\denkfabrik\AppData\Roaming\npm;C:\Program Files (x86)\MSBuild\14.0\bin\;C:\Program Files (x86)\Microsoft SDKs\Windows\v8.1A\bin\NETFX 4.5.1 Tools\x64
-10 verbose lifecycle bookmars@1.0.0~start: CWD: C:\xampp\htdocs\bookmarks\frontend
-11 silly lifecycle bookmars@1.0.0~start: Args: [ '/d /s /c', 'tsc && concurrently "tsc -w" "lite-server" ' ]
-12 silly lifecycle bookmars@1.0.0~start: Returned: code: 2  signal: null
-13 info lifecycle bookmars@1.0.0~start: Failed to exec start script
-14 verbose stack Error: bookmars@1.0.0 start: `tsc && concurrently "tsc -w" "lite-server" `
-14 verbose stack Exit status 2
+5 info lifecycle bookmarks@1.0.0~prestart: bookmarks@1.0.0
+6 silly lifecycle bookmarks@1.0.0~prestart: no script for prestart, continuing
+7 info lifecycle bookmarks@1.0.0~start: bookmarks@1.0.0
+8 verbose lifecycle bookmarks@1.0.0~start: unsafe-perm in lifecycle true
+9 verbose lifecycle bookmarks@1.0.0~start: PATH: C:\Program Files\nodejs\node_modules\npm\bin\node-gyp-bin;C:\xampp\htdocs\bookmarks\frontend\node_modules\.bin;C:\Users\denkfabrik\AppData\Local\GitHub\PortableGit_284a859b0e6deba86edc624fef1e4db2aa8241a9\cmd;C:\Users\denkfabrik\AppData\Local\GitHub\PortableGit_284a859b0e6deba86edc624fef1e4db2aa8241a9\usr\bin;C:\Users\denkfabrik\AppData\Local\GitHub\PortableGit_284a859b0e6deba86edc624fef1e4db2aa8241a9\usr\share\git-tfs;C:\Users\denkfabrik\AppData\Local\Apps\2.0\M7EQ0P6P.NPW\6Y0L3AA3.ZCW\gith..tion_317444273a93ac29_0003.0003_83ed0490a76a8c54;C:\Users\denkfabrik\AppData\Local\GitHub\lfs-amd64_1.3.1;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\GtkSharp\2.12\bin;C:\xampp\php;C:\ProgramData\ComposerSetup\bin;C:\Program Files\nodejs\;C:\Users\denkfabrik\AppData\Local\Programs\EmEditor;C:\OpenSSL-Win64;C:\curl\bin;C:\Users\denkfabrik\AppData\Roaming\Composer\vendor\bin;C:\Users\denkfabrik\AppData\Roaming\npm;C:\Program Files (x86)\MSBuild\14.0\bin\;C:\Program Files (x86)\Microsoft SDKs\Windows\v8.1A\bin\NETFX 4.5.1 Tools\x64
+10 verbose lifecycle bookmarks@1.0.0~start: CWD: C:\xampp\htdocs\bookmarks\frontend
+11 silly lifecycle bookmarks@1.0.0~start: Args: [ '/d /s /c', 'tsc && concurrently "tsc -w" "lite-server" ' ]
+12 silly lifecycle bookmarks@1.0.0~start: Returned: code: 3221225786  signal: null
+13 info lifecycle bookmarks@1.0.0~start: Failed to exec start script
+14 verbose stack Error: bookmarks@1.0.0 start: `tsc && concurrently "tsc -w" "lite-server" `
+14 verbose stack Exit status 3221225786
 14 verbose stack     at EventEmitter.<anonymous> (C:\Program Files\nodejs\node_modules\npm\lib\utils\lifecycle.js:255:16)
 14 verbose stack     at emitTwo (events.js:106:13)
 14 verbose stack     at EventEmitter.emit (events.js:191:7)
@@ -24,24 +24,24 @@
 14 verbose stack     at ChildProcess.emit (events.js:191:7)
 14 verbose stack     at maybeClose (internal/child_process.js:885:16)
 14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
-15 verbose pkgid bookmars@1.0.0
+15 verbose pkgid bookmarks@1.0.0
 16 verbose cwd C:\xampp\htdocs\bookmarks\frontend
 17 error Windows_NT 6.1.7601
 18 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "start"
 19 error node v7.1.0
 20 error npm  v3.10.9
 21 error code ELIFECYCLE
-22 error bookmars@1.0.0 start: `tsc && concurrently "tsc -w" "lite-server" `
-22 error Exit status 2
-23 error Failed at the bookmars@1.0.0 start script 'tsc && concurrently "tsc -w" "lite-server" '.
+22 error bookmarks@1.0.0 start: `tsc && concurrently "tsc -w" "lite-server" `
+22 error Exit status 3221225786
+23 error Failed at the bookmarks@1.0.0 start script 'tsc && concurrently "tsc -w" "lite-server" '.
 23 error Make sure you have the latest version of node.js and npm installed.
-23 error If you do, this is most likely a problem with the bookmars package,
+23 error If you do, this is most likely a problem with the bookmarks package,
 23 error not with npm itself.
 23 error Tell the author that this fails on your system:
 23 error     tsc && concurrently "tsc -w" "lite-server"
 23 error You can get information on how to open an issue for this project with:
-23 error     npm bugs bookmars
+23 error     npm bugs bookmarks
 23 error Or if that isn't available, you can get their info via:
-23 error     npm owner ls bookmars
+23 error     npm owner ls bookmarks
 23 error There is likely additional logging output above.
 24 verbose exit [ 1, true ]

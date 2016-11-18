@@ -12,4 +12,7 @@ interface AdapterInterface {
     
     public function query($statement,$params);
     
+    public function insert($table,$params);
+    
+    public function update($table,$params,$uid);
 }

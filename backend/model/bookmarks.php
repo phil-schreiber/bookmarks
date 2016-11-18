@@ -102,5 +102,12 @@ class bookmarks extends AbstractEntity{
     public function getHashtags(){
         return $this->_hashtags;
     }
-    
+   
+    public function jsonSerialize() {
+        $json = array();
+        foreach($this as $key => $value) {
+            $json[substr($key,1)] = $value;
+        }
+        return $json; 
+    }
 }
