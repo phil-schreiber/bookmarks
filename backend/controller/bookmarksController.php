@@ -1,24 +1,25 @@
 <?php
+/**
+ * Mapping out pathes for the autoloader.
+ * 
+ * PHP version 5
+ * 
+ * @category Class
+ * @package  Bookmarks
+ * @author   Philipp Schreiber <phil.schreiber@ephemeroid.net>
+ * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
+ * @link     https://github.com/phil-schreiber/bookmarks    
+ */
+
 namespace bm\controller;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- * Description of bookmarksController
- *
- * @author master1
- */
 class bookmarksController extends controllerBase{
             
     
     public function listAction(){        
         /*TODO implementing factory for model creation instead of passing on dependency */
         
-    $bookmarks = $this->_mappers["bookmarks"]->find(array(
+        $bookmarks = $this->_mappers["bookmarks"]->find(array(
             "conditions" => "`deleted` = 0",
             "bind" => array(
                 1 => 0
@@ -33,7 +34,7 @@ class bookmarksController extends controllerBase{
                 
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST["id"])) {
             $id = filter_input(INPUT_POST,$_POST["id"],FILTER_VALIDATE_INT);            
-        }else{
+        } else {
             $id = filter_var($id,FILTER_VALIDATE_INT);
         }
         
@@ -46,15 +47,17 @@ class bookmarksController extends controllerBase{
         $this->listAction();
     }
     
-    public function create(){
-        if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+    public function createAction(){                
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $bookmark = new \bm\model\bookmarks(
                 null,
                 time(),    
-                filter_input(INPUT_POST,$_POST["url"]),
-                filter_input(INPUT_POST,$_POST["title"])    
+                isset($_POST["url"]) ? filter_input(INPUT_POST,"url") : "" ,
+                isset($_POST["title"]) ? filter_input(INPUT_POST,"title") : ""    
                 );
             $this->_mappers["bookmarks"]->insert($bookmark);
+            
         }
         
         

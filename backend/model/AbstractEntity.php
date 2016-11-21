@@ -1,4 +1,13 @@
 <?php
+/**
+ * @author Philipp Schreiber <phil.schreiber@ephemeroid.net>
+ * 
+ * @category Interface
+ * @package  bookmarks 
+ * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
+ * @link     https://github.com/phil-schreiber/bookmarks
+ */
+
 namespace bm\model;
 
 abstract class AbstractEntity implements \JsonSerializable

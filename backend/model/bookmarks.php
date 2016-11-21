@@ -1,10 +1,14 @@
 <?php
-namespace bm\model;
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * @author Philipp Schreiber <phil.schreiber@ephemeroid.net>
+ * 
+ * @category Class
+ * @package  bookmarks 
+ * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
+ * @link     https://github.com/phil-schreiber/bookmarks
  */
+
+namespace bm\model;
 
 class bookmarks extends AbstractEntity{
     protected $_uid;
@@ -16,7 +20,10 @@ class bookmarks extends AbstractEntity{
     protected $_hashtags;
     
     public function __construct( $uid=null,$tstamp,$url,$title, array $hashtags=null){
-        $this->setUid($uid);
+        if($uid){
+            $this->setUid($uid);
+        }
+        
         $this->setTstamp($tstamp);
         $this->setUrl($url);
         $this->setTitle($title);
@@ -103,6 +110,17 @@ class bookmarks extends AbstractEntity{
         return $this->_hashtags;
     }
    
+    public function getAttrArr(){
+        $attrArr=array();
+        foreach($this as $key => $value){
+            if($value){
+                $attrArr[substr($key,1)] = $value;
+            }
+            
+        }
+        return $attrArr;
+    }
+    
     public function jsonSerialize() {
         $json = array();
         foreach($this as $key => $value) {

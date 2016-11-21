@@ -1,4 +1,16 @@
 <?php
+/**
+ * Mapping namespace to folder structure.
+ * 
+ * PHP version 5
+ * 
+ * @category Base
+ * @package  Bookmarks
+ * @author   Philipp Schreiber <phil.schreiber@ephemeroid.net>
+ * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
+ * @link     https://github.com/phil-schreiber/bookmarks    
+ */
+
 namespace bm\core;
 
 class Autoloader

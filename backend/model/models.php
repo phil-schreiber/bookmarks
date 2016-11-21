@@ -1,11 +1,17 @@
 <?php
+/**
+ * Basic backend configuration.
+ * 
+ * @author  Philipp Schreiber <phil.schreiber@ephemeroid.net>   
+ * @categoy interface
+ * @package bookmarks 
+ * @license http://www.gnu.org/copyleft/gpl.html GNU General Public License
+ * @link    https://github.com/phil-schreiber/bookmarks
+ * 
+ */
+
 namespace bm\model;
 
-/**
- * Description of models
- *
- * @author master1
- */
 abstract class models {
     protected $_table;
     protected $_db;
