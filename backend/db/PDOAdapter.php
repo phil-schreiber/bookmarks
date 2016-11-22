@@ -1,11 +1,14 @@
 <?php
 /**
- * @author Philipp Schreiber <phil.schreiber@ephemeroid.net>
+ * Implementing DB CRUD methods for PHP's PDO.
+ * 
+ * PHP version 5
  * 
  * @category Class
- * @package  bookmarks 
+ * @package  Bookmarks
+ * @author   Philipp Schreiber <phil.schreiber@ephemeroid.net>
  * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
- * @link     https://github.com/phil-schreiber/bookmarks
+ * @link     https://github.com/phil-schreiber/bookmarks    
  */
 
 namespace bm\db;

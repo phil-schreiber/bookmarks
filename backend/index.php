@@ -36,10 +36,14 @@ $container['db'] = function ($c) {
 };
 
 /*modelmappers*/
-$container["mm"]=function($c){
-        return array(
-            "bookmarks" => new model\bookmarksMapper($c["db"])
-        );
+$container["mm"]["bookmarksHashtagsMapper"]=function($c){
+    return new model\bookmarksHashtagsMmMapper($c["db"]);
+};
+$container["mm"]["hashtags"]=function($c){
+    return new model\hashtagsMapper($c["db"],$c["mm"]["bookmarksHashtagsMapper"]);
+};
+$container["mm"]["bookmarks"]=function($c){              
+    return new model\bookmarksMapper($c["db"],$c["mm"]["hashtags"],$c["mm"]["bookmarksHashtagsMapper"]);
 };
 
 /*viewcontainer*/

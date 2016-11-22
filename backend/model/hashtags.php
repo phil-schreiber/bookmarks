@@ -12,23 +12,19 @@ namespace bm\model;
 
 
 class hashtags extends AbstractEntity{
-    protected $_uid;
-    protected $_deleted;
+    protected $_uid;    
     protected $_crdate;
     protected $_tstamp;    
-    protected $_title;
-    protected $_hashtags;
+    protected $_title;  
     
-    public function __construct( $uid=null,$tstamp,$title){
+    public function __construct($crdate, $tstamp, $title, $uid = null){
         if($uid){
             $this->setUid($uid);
         }
-        
+        $this->setCrdate($crdate);
         $this->setTstamp($tstamp);        
         $this->setTitle($title);
-        if($hashtags){
-            $this->setHashtags($hashtags);
-        }
+        
     }
     
     public function  setUid($uid){
@@ -47,17 +43,7 @@ class hashtags extends AbstractEntity{
     public function getUid(){
         return $this->_uid;
     }
-    
-    /*TODO put some validation in place for the other setters*/
-    public function setDeleted($deleted){
-        $this->_deleted = $deleted;
-        return $this;
-    }
-    
-    public function getDetleted(){
-        return $this->_deleted;
-    }
-    
+        
     public function setCrdate($crdate){
         $this->_crdate = $crdate;
         return $this;
@@ -83,11 +69,7 @@ class hashtags extends AbstractEntity{
     
     public function getTitle(){
         return $this->_title;
-    }        
-    
-    public function getHashtags(){
-        return $this->_hashtags;
-    }
+    }             
    
     public function getAttrArr(){
         $attrArr=array();

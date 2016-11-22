@@ -1,6 +1,6 @@
 <?php
 /**
- * Mapping out pathes for the autoloader.
+ * Basic controller configuration.
  * 
  * PHP version 5
  * 

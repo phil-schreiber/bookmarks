@@ -1,27 +1,28 @@
 <?php
 /**
- * @author Philipp Schreiber <phil.schreiber@ephemeroid.net>
+ * Implementing magic setter and getter for easy domain model attribute access and making the object serializable.
  * 
- * @category Interface
- * @package  bookmarks 
+ * Crediting Alejandro Gervasio's https://www.sitepoint.com/building-a-domain-model/ for this implementation of abstract entities  
+ * 
+ * PHP version 5
+ * 
+ * @category Base
+ * @package  Bookmarks
+ * @author   Philipp Schreiber <phil.schreiber@ephemeroid.net>
  * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
- * @link     https://github.com/phil-schreiber/bookmarks
+ * @link     https://github.com/phil-schreiber/bookmarks    
  */
 
 namespace bm\model;
 
 abstract class AbstractEntity implements \JsonSerializable
 {
-    /*
-     * crediting Alejandro Gervasio's https://www.sitepoint.com/building-a-domain-model/ for this implementation of abstract entities  
-     *      
-     **/
-    
+        
     public function __set($name, $value) {
         $field = "_" . strtolower($name);
 
         if (!property_exists($this, $field)) {
-            throw new InvalidArgumentException(
+            throw new \InvalidArgumentException(
                 "Setting the field '$field' is not valid for this entity.");
         }
 

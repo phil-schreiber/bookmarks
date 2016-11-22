@@ -14,16 +14,17 @@ class bookmarks extends AbstractEntity{
     protected $_uid;
     protected $_deleted;
     protected $_crdate;
+    protected $_cruser;
     protected $_tstamp;
     protected $_url;
     protected $_title;
-    protected $_hashtags;
+    protected $_hashtags;    
     
-    public function __construct( $uid=null,$tstamp,$url,$title, array $hashtags=null){
+    public function __construct($cruser, $tstamp, $url, $title, $uid = null, array $hashtags = null){
         if($uid){
             $this->setUid($uid);
         }
-        
+        $this->setCruser($cruser);
         $this->setTstamp($tstamp);
         $this->setUrl($url);
         $this->setTitle($title);
@@ -32,7 +33,7 @@ class bookmarks extends AbstractEntity{
         }
     }
     
-    public function  setUid($uid){
+    public function setUid($uid){
         if($this->_uid !== null){
             throw new \BadMethodCallException("UID has already been set");
         }
@@ -47,6 +48,15 @@ class bookmarks extends AbstractEntity{
     
     public function getUid(){
         return $this->_uid;
+    }
+    
+    public function setCruser($cruser){
+        $this->_cruser = $cruser;
+        return $this;
+    }
+    
+    public function getCruser(){
+        return $this->_cruser;
     }
     
     /*TODO put some validation in place for the other setters*/
@@ -113,7 +123,7 @@ class bookmarks extends AbstractEntity{
     public function getAttrArr(){
         $attrArr=array();
         foreach($this as $key => $value){
-            if($value){
+            if($value && $key !== "_hashtags"){
                 $attrArr[substr($key,1)] = $value;
             }
             

@@ -1,6 +1,6 @@
 <?php
 /**
- * Mapping out pathes for the autoloader.
+ * Entry point and login controller.
  * 
  * PHP version 5
  * 

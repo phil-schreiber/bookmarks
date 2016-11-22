@@ -1,6 +1,6 @@
 <?php
 /**
- * Mapping namespace to folder structure.
+ * Mapping namespace to folder structure and registering corresponding autoloader.
  * 
  * PHP version 5
  * 

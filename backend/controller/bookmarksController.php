@@ -1,6 +1,6 @@
 <?php
 /**
- * Mapping out pathes for the autoloader.
+ * Controlling Bookmarks CRUD cycle.
  * 
  * PHP version 5
  * 
@@ -49,17 +49,53 @@ class bookmarksController extends controllerBase{
     
     public function createAction(){                
 
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $bookmark = new \bm\model\bookmarks(
-                null,
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {            
+            
+            $bookmark = new \bm\model\bookmarks(                
                 time(),    
                 isset($_POST["url"]) ? filter_input(INPUT_POST,"url") : "" ,
-                isset($_POST["title"]) ? filter_input(INPUT_POST,"title") : ""    
+                isset($_POST["title"]) ? filter_input(INPUT_POST,"title") : ""
+                    
                 );
+            
+            $hashtags = $this->assembleHashtags();
+            $bookmark->setHashtags($hashtags);
             $this->_mappers["bookmarks"]->insert($bookmark);
+            
+            var_dump($bookmark);
+            
+        }                
+    }
+    
+    private function assembleHashtags(){
+        if(!isset($_POST["hashtags"])){
+            return array();
+        }
+        
+        if(count($_POST["hashtags"]) == 0){
+            return array();
+        }
+        
+        $hashtags=array();
+        
+        $hashtagsRaw = filter_input_array(INPUT_POST,array("hashtags"));
+        
+        foreach($hashtagsRaw as $hashtagRaw){
+            $hashtag = $this->_mappers["hashtags"]->findOneByAttr("title",$hashtagRaw);
+            if(!$hashtag){
+                $hashtag = new \bm\model\hashtags(
+                        time(),
+                        time(),
+                        $hashtagRaw
+                    );
+                $uid = $this->_mappers["hashtags"]->insert($hashtag);
+                $hashtag->setUid($uid);                
+            }
+            $hashtags[] = $hashtag;
             
         }
         
+        return $hashtags;
         
     }
 }

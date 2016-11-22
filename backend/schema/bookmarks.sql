@@ -32,6 +32,7 @@ CREATE TABLE `bookmarks` (
   `deleted` tinyint(4) NOT NULL,
   `tstamp` int(11) NOT NULL,
   `crdate` int(11) NOT NULL,
+  `cruser` int(11) NOT NULL,
   `url` varchar(256) NOT NULL,
   `title` varchar(256) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

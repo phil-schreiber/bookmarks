@@ -11,9 +11,13 @@
 namespace bm\model;
 
 class bookmarksMapper extends models{
-    function __construct($db) {
+    protected $_hashtagsMapper;
+    protected $_bookmarksHashtagsMapper;
+    function __construct($db, hashtagsMapper $hashtagsMapper, bookmarksHashtagsMmMapper $bookmarksHashtagsMapper) {
         parent::__construct($db);
         $this->_table = 'bookmarks';
+        $this->_hashtagsMapper = $hashtagsMapper;
+        $this->_bookmarksHashtagsMapper = $bookmarksHashtagsMapper;
     }
     
     public function insert(AbstractEntity $bookmark){
@@ -22,11 +26,22 @@ class bookmarksMapper extends models{
                 $bookmark->getAttrArr()
                 );
         $bookmark->setUid($uid);
-         return $bookmark;         
-    }
         
+        if(count($bookmark->hashtags)>0){
+            $this->insertRelations($bookmark);
+        }
+        
+        return $bookmark;         
+    }
+    
+    private function insertRelations($bookmark){
+        foreach($bookmark->hashtags as $hashtag){
+            $relation = new bookmarksHashtagsMm();
+        }
+    }
     
     function createEntity(array $row) {        
+        
         return new bookmarks(intval($row["uid"]),$row["title"],$row["url"],$row["tstamp"]);
     }
     

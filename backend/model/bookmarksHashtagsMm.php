@@ -12,7 +12,7 @@
  */
 namespace bm\model;
 
-class bookmarks_hashtags_mm{
+class bookmarksHashtagsMm{
    
     
 }

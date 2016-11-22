@@ -1,12 +1,14 @@
 <?php
-
 /**
- * @author Philipp Schreiber <phil.schreiber@ephemeroid.net>
+ * Iterface for implementation of DB CRUD methods.
+ * 
+ * PHP version 5
  * 
  * @category Interface
- * @package  bookmarks 
+ * @package  Bookmarks
+ * @author   Philipp Schreiber <phil.schreiber@ephemeroid.net>
  * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
- * @link     https://github.com/phil-schreiber/bookmarks
+ * @link     https://github.com/phil-schreiber/bookmarks    
  */
 
 namespace bm\db;
