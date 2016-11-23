@@ -16,7 +16,8 @@ class bookmarksHashtagsMmMapper extends models{
         $this->_table = 'bookmarks_hashtags_mm';
     }
     
-    public function insert(AbstractEntity $bookmarkHashtagMM){
+    public function insert(AbstractEntity $bookmarkHashtagMM){        
+        
         $this->_db->getAdapter()->insert(
             $this->_table,
             $bookmarkHashtagMM->getAttrArr()
@@ -27,7 +28,7 @@ class bookmarksHashtagsMmMapper extends models{
         
     
     function createEntity(array $row) {        
-        return new bookmarks(intval($row["uid"]),$row["title"],$row["url"],$row["tstamp"]);
+        return new bookmarksHashtagsMm($row["bookmarks_uid"],$row["hashtags_uid"]);
     }
     
     

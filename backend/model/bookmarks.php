@@ -20,10 +20,11 @@ class bookmarks extends AbstractEntity{
     protected $_title;
     protected $_hashtags;    
     
-    public function __construct($cruser, $tstamp, $url, $title, $uid = null, array $hashtags = null){
+    public function __construct($cruser, $crdate, $tstamp, $url, $title, $uid = null, array $hashtags = null){
         if($uid){
             $this->setUid($uid);
         }
+        $this->setCrdate($crdate);
         $this->setCruser($cruser);
         $this->setTstamp($tstamp);
         $this->setUrl($url);

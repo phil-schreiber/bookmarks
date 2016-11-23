@@ -41,10 +41,8 @@ class PDOAdapter implements AdapterInterface {
         
     
     public function query($query,$params){        
-        $result = array();
-        
-        $stmt = $this->conn->prepare($query);
-        
+        $result = array();        
+        $stmt = $this->conn->prepare($query);        
         foreach($params as $key => $value){
             
             if(is_int($value)){                
@@ -54,7 +52,7 @@ class PDOAdapter implements AdapterInterface {
             }
         }
         $stmt->execute();
-        while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+        while($row = $stmt->fetch(PDO::FETCH_NAMED)){
             array_push($result,$row);
         }
         

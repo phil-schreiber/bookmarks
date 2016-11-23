@@ -46,8 +46,8 @@ abstract class models {
         return $this->createEntity($result[0]);        
     }
     
-    public function findOneByAttr($attr,$val){        
-        $comp = " LIKE :";
+    public function findOneByAttr($attr,$val){                
+        $comp = " LIKE ";
         $bindKey = ":".$val;
         if(is_int($val)){
             $comp = " = ?";
@@ -55,27 +55,25 @@ abstract class models {
         }
         $result = $this->_db->getAdapter()->query("SELECT * "
                 . "FROM ".$this->_table." "
-                . "WHERE ".$attr.$comp,
-                array($binKey=>$val));        
+                . "WHERE ".$attr.$comp." ".$bindKey,
+                array($bindKey=>$val));        
          
-        
+        if(count($result) === 0){
+            return false;
+        }
         return $this->createEntity($result[0]);        
     }
     
     public function findMM($params=array()){
         $entities = array();
-        $results = $this->_db->getAdapter()->query("SELECT local.*,foreign.* "
+        $results = $this->_db->getAdapter()->query("SELECT local.*,`foreign`.* "
                 . "FROM ".$this->_table." AS local "
-                . "LEFT JOIN ".$this->_tableMm." ON ".$this->_table.".uid = ".$this->_tableMm.".".$this->_table.".uid "
-                . "LEFT JOIN ".$this->_tableForeign." AS foreign ON ".$this->_tableForeign.".uid = ".$this->_tableMm.".".$this->_tableForeign.".uid "
+                . "LEFT JOIN ".$this->_tableMm." ON local.uid = ".$this->_tableMm.".".$this->_table."_uid "
+                . "LEFT JOIN ".$this->_tableForeign." AS `foreign` ON `foreign`.uid = ".$this->_tableMm.".".$this->_tableForeign."_uid "
                 . "WHERE ".$params["conditions"]."",$params["bind"]);        
-        if($results){
-            foreach($results as $result){
-                $entities[]=$this->createEntity($result);
-            }
-        }
+        
        
-        return $entities;
+        return $results;
         
     }
     

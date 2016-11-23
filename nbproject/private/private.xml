@@ -4,19 +4,16 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/xampp/htdocs/bookmarks/backend/model/bookmarks.php</file>
-            <file>file:/C:/xampp/htdocs/bookmarks/backend/db/AdapterInterface.php</file>
+            <file>file:/C:/xampp/htdocs/bookmarks/backend/model/hashtagsMapper.php</file>
             <file>file:/C:/xampp/htdocs/bookmarks/backend/model/AbstractEntity.php</file>
-            <file>file:/C:/xampp/htdocs/bookmarks/backend/config/routes.php</file>
             <file>file:/C:/xampp/htdocs/bookmarks/backend/model/hashtags.php</file>
             <file>file:/C:/xampp/htdocs/bookmarks/backend/model/models.php</file>
+            <file>file:/C:/xampp/htdocs/bookmarks/backend/model/bookmarksHashtagsMmMapper.php</file>
             <file>file:/C:/xampp/htdocs/bookmarks/backend/model/bookmarksMapper.php</file>
-            <file>file:/C:/xampp/htdocs/bookmarks/backend/core/Autoloader.php</file>
-            <file>file:/C:/xampp/htdocs/bookmarks/backend/model/bookmarks_hashtags_mm.php</file>
+            <file>file:/C:/xampp/htdocs/bookmarks/backend/index.php</file>
             <file>file:/C:/xampp/htdocs/bookmarks/backend/db/db.php</file>
-            <file>file:/C:/xampp/htdocs/bookmarks/backend/config/bootstrap.php</file>
             <file>file:/C:/xampp/htdocs/bookmarks/backend/schema/bookmarks.sql</file>
-            <file>file:/C:/xampp/htdocs/bookmarks/backend/controller/indexController.php</file>
-            <file>file:/C:/xampp/htdocs/bookmarks/backend/controller/controllerBase.php</file>
+            <file>file:/C:/xampp/htdocs/bookmarks/backend/model/bookmarksHashtagsMm.php</file>
             <file>file:/C:/xampp/htdocs/bookmarks/backend/controller/bookmarksController.php</file>
             <file>file:/C:/xampp/htdocs/bookmarks/backend/db/PDOAdapter.php</file>
         </group>

@@ -41,11 +41,11 @@ abstract class AbstractEntity implements \JsonSerializable
         $field = "_" . strtolower($name);
 
         if (!property_exists($this, $field)) {
-            throw new InvalidArgumentException(
+            throw new \InvalidArgumentException(
                 "Getting the field '$field' is not valid for this entity.");
         }
 
-        $accessor = "get" . ucfirst(strtolower($name));
+        $accessor = "get" . ucfirst(strtolower($name));        
         return (method_exists($this, $accessor) &&
             is_callable(array($this, $accessor)))
             ? $this->$accessor() : $this->field;
