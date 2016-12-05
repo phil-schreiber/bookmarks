@@ -16,9 +16,12 @@ namespace bm\db;
 use PDO;
 
 class PDOAdapter implements AdapterInterface {
+    protected static $_instance = null;
+    
     private $conn;
     private $dsn,$user,$password;
-    public function __construct($dsn,$user,$password) {                        
+    
+    protected function __construct($dsn,$user,$password) {                        
         $this->dsn = $dsn;
         $this->user = $user;
         $this->password = $password;
@@ -30,9 +33,8 @@ class PDOAdapter implements AdapterInterface {
             return;
         }
         
-        try {
-            /*Breaking DI here, but passing in the connection seem a little off*/
-            $this->conn = new PDO($this->dsn, $this->user, $this->password);
+        try {                    
+            $this->conn = new PDO($this->dsn, $this->user, $this->password);            
             $this->conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
         } catch (PDOException $e) {
             echo 'Connection failed: ' . $e->getMessage();
@@ -89,5 +91,16 @@ class PDOAdapter implements AdapterInterface {
         $this->connect();
         return $this->conn->lastInsertId($name);
     }
+    
+    public function getInstance($dsn,$user,$password){
+        if (null === self::$_instance)
+       {
+           self::$_instance = new self($dsn,$user,$password);
+       }
+       return self::$_instance;
+    }
+    
+    private function __clone() {
         
+    }
 }
