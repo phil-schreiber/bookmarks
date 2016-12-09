@@ -9,18 +9,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var AppComponent = (function () {
-    function AppComponent() {
+var index_1 = require('../_services/index');
+var AlertComponent = (function () {
+    function AlertComponent(alertService) {
+        this.alertService = alertService;
     }
-    AppComponent = __decorate([
+    AlertComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.alertService.getMessage().subscribe(function (message) { _this.message = message; });
+    };
+    AlertComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
-            selector: 'bookmarks',
-            templateUrl: 'app.component.html'
+            selector: 'alert',
+            templateUrl: 'alert.component.html'
         }), 
-        __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+        __metadata('design:paramtypes', [index_1.AlertService])
+    ], AlertComponent);
+    return AlertComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.AlertComponent = AlertComponent;
+//# sourceMappingURL=alert.component.js.map
