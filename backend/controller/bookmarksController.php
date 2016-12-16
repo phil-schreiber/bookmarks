@@ -32,8 +32,8 @@ class bookmarksController extends controllerBase{
     
     public function retrieveAction($id=0){
                 
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST["id"])) {
-            $id = filter_input(INPUT_POST,$_POST["id"],FILTER_VALIDATE_INT);            
+        if (filter_input(INPUT_SERVER, 'REQUEST_METHOD', FILTER_SANITIZE_STRING) === 'POST' && isset($_POST["id"])) {
+            $id = filter_input(INPUT_POST,"id",FILTER_VALIDATE_INT);            
         } else {
             $id = filter_var($id,FILTER_VALIDATE_INT);
         }

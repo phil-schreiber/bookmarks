@@ -48,8 +48,12 @@ $container["mm"]=function($c){
 };
 
 
-/*viewcontainer*/
-
+/*authcontainer*/
+$container["auth"]=function($c){
+        $config   = dirname(__FILE__) . '/config/authConfig.php';		 	
+        require_once( "vendor/Hybrid/Auth.php" );
+	return	new \Hybrid_Auth( $config );
+};
 
 
 require_once CONFIG_PATH . "routes.php";
@@ -58,7 +62,7 @@ $container['request'] = array($controller,$action);
 
 $container['controller'] = function($c){    
     $controller = "bm\controller\\".ucfirst($c["request"][0])."Controller";    
-    return new $controller($c["db"],$c["mm"]);
+    return new $controller($c);
 };
 
 $container['controller']->$action($id);

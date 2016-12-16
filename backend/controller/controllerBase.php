@@ -16,10 +16,12 @@ namespace bm\controller;
 class controllerBase {
    protected $_db;
    protected $_mappers;
+   protected $_auth;
    
-   function __construct(\bm\db\db $db, $mappers){
-        $this->_db = $db;
-        $this->_mappers=$mappers;
+   function __construct($di){
+        $this->_db = $di["db"];
+        $this->_mappers = $di["mm"];
+        $this->_auth = $di["auth"];
    }
    
    

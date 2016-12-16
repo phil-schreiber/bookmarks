@@ -20,4 +20,5 @@ return array(
       "dbname" => "bookmarks"
   ),
   "basepath" =>"/bookmarks/backend/"
+  
 );

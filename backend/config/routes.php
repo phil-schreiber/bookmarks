@@ -13,7 +13,7 @@
 
   
 $controllers = array('bookmarks' => ['index','create','update','retrieve','delete','list'],
-                       'login' => ['index','create'],
+                       'login' => ['index','login'],
                        'index' => ['index','error']);
 
  

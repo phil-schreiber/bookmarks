@@ -1,16 +1,6 @@
 <?php
 
-/**
- * HybridAuth
- * http://hybridauth.sourceforge.net | http://github.com/hybridauth/hybridauth
- * (c) 2009-2015, HybridAuth authors | http://hybridauth.sourceforge.net/licenses.html
- */
-// ----------------------------------------------------------------------------------------
-//	HybridAuth Config file: http://hybridauth.sourceforge.net/userguide/Configuration.html
-// ----------------------------------------------------------------------------------------
-
-return
-		array(
+return array(
 			"base_url" => "http://localhost/hybridauth-git/hybridauth/",
 			"providers" => array(
 				// openid providers
@@ -18,19 +8,19 @@ return
 					"enabled" => true
 				),
 				"Yahoo" => array(
-					"enabled" => true,
+					"enabled" => false,
 					"keys" => array("key" => "", "secret" => ""),
 				),
 				"AOL" => array(
-					"enabled" => true
+					"enabled" => false
 				),
 				"Google" => array(
 					"enabled" => true,
-					"keys" => array("id" => "", "secret" => ""),
+					"keys" => array("id" => "268790427273-4rfr42b8peqhdm7dglkq9iqd41nee9mo.apps.googleusercontent.com", "secret" => "8ppo8KztwGQIjSgzusj2j3vW"),
 				),
 				"Facebook" => array(
 					"enabled" => true,
-					"keys" => array("id" => "", "secret" => ""),
+					"keys" => array("id" => "370728589939713", "secret" => "62f4636903921a9baedd85689e3dd769"),
 					"trustForwarded" => false
 				),
 				"Twitter" => array(
@@ -40,15 +30,15 @@ return
 				),
 				// windows live
 				"Live" => array(
-					"enabled" => true,
+					"enabled" => false,
 					"keys" => array("id" => "", "secret" => "")
 				),
 				"LinkedIn" => array(
-					"enabled" => true,
+					"enabled" => false,
 					"keys" => array("key" => "", "secret" => "")
 				),
 				"Foursquare" => array(
-					"enabled" => true,
+					"enabled" => false,
 					"keys" => array("id" => "", "secret" => "")
 				),
 			),
@@ -56,7 +46,7 @@ return
 			// You can also set it to
 			// - "error" To log only error messages. Useful in production
 			// - "info" To log info and error messages (ignore debug messages)
-			"debug_mode" => false,
+			"debug_mode" => true,
 			// Path to file writable by the web server. Required if 'debug_mode' is not false
-			"debug_file" => "",
+			"debug_file" => "log.txt"
 );
